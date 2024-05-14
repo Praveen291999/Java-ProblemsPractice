@@ -1,4 +1,4 @@
-package practice.problemSolving;
+package practice.Learning;
 
 import java.util.ArrayList;
 

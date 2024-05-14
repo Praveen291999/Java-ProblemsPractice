@@ -1,8 +1,10 @@
 package practice.Learning;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Vector;
+import java.util.stream.Stream;
 
 public class CollectionToArray {
 	
@@ -20,9 +22,13 @@ public class CollectionToArray {
 		System.out.println("********");
 		System.out.println(vectorGreeting);
 		
-		Object[] a=greeting.toArray();
+		//represent the size of the array; instead,
+		//it's just a placeholder indicating that the size is initially zero.
+		String[] a=greeting.toArray(new String[0]);
 		System.out.println("********");
-		System.out.println(a.toString());
+		//To print array values
+		Stream<String> st=Arrays.stream(a);
+		st.forEach(System.out::println);
 		
 	}
 
