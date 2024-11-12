@@ -1,7 +1,11 @@
 package zAttended;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 public class RemoveConsecutive3Words {
 	
@@ -9,39 +13,56 @@ public class RemoveConsecutive3Words {
 
 		//String[] a1=a.split("\\s+") ;
 		
-		List<String> list1=new ArrayList<>();
+		List<String> list=new ArrayList<>();
 		
 		StringBuilder builder=new StringBuilder();
 		for(int i=0;i<a.length();i++) {
-			//char[] char1=new char[a.length()];
 			if(a.charAt(i)==' ') {
-				list1.add(builder.toString());
+				list.add(builder.toString());
+				//reset the Stringbuilder for the next String
 				builder=new StringBuilder();
 			}else {
 				builder.append(a.charAt(i));
 			}
 		}
-		list1.add(builder.toString());
+		list.add(builder.toString());
 		
-		return list1;
+		return list;
 	}
 
 	public static void main(String[] args) {
 		String a = "Every morning I want to do exercise regularly";
 		String b = "Every morning I want to do meditation without fail";
 		String c = "It is important that I want to be happy always";
-
+		
 		List<String> aSplit = splitString(a);
 		List<String> bSplit = splitString(b);
 		List<String> cSplit = splitString(c);
 		
-		for (int i=0;i<a.length();i++) {
-			for (int j=0;j<b.length();j++) {
-				for (int k=0;k<c.length();k++) {
-				
-				}
-			}
-		}
+		System.out.println(aSplit);
+		System.out.println(bSplit);
+		System.out.println(cSplit);
+		
+		List<String> commonList=new ArrayList<>();
+		commonList.addAll(aSplit);
+		commonList.addAll(bSplit);
+		commonList.addAll(cSplit);
+		
+		Map<String, Long> aSplitOccurence=WordOccurence(commonList);
+		System.out.println(aSplitOccurence);
+		
+	}
+
+	private static Map<String, Long> WordOccurence(List<String> aSplit) {
+		
+		  Map<String, Long> wordCountMap = aSplit.stream()
+			        .collect(Collectors.groupingBy(
+			           w->w,
+			            LinkedHashMap::new,
+			            Collectors.counting()
+			        ));
+		  
+		  return wordCountMap;
 	}
 
 }

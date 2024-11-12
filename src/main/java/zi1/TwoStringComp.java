@@ -4,7 +4,7 @@ package zi1;
 	public class TwoStringComp {
 	    public static void main(String[] args) {
 	        String str1 = "ProgramJavaProger";
-	        String str2 = "roge";
+	        String str2 = "roga";
 	        
 	        int index = str1.indexOf(str2);
 	        

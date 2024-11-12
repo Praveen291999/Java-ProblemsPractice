@@ -6,7 +6,7 @@ public class PalindromeNumber {
 		int copy=n;
 		int rev = 0;
 		while(n!=0) {
-			//gives the remailder
+			//gives the remainder
 			rev=(rev*10)+(n%10);
 			n=n/10;//every time elimnates the last value
 		}

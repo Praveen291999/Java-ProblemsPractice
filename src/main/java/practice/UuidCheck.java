@@ -4,7 +4,7 @@ import java.util.regex.Pattern;
 public class UuidCheck {
 
     public static void main(String[] args) {
-        String input = "123"; // Replace this with your input
+        String input = "a57fea9c-651a-4f97-8c61-8a5af08354e6"; // Replace this with your input
 
         if (isValidUUID(input)) {
             System.out.println("Valid UUID");

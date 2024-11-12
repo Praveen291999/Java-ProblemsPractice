@@ -4,6 +4,10 @@ public class PalindromeString {
 
 	private static int palindromeCheck(String S) {
 
+//		StringBuilder strBuilder = new StringBuilder(S);
+//		strBuilder.reverse().toString();
+		
+		
 		StringBuilder str = new StringBuilder();
 		for (int i = S.length()-1; i >= 0; i--) {
 			str.append(S.charAt(i));
@@ -13,6 +17,7 @@ public class PalindromeString {
 		} else {
 			return 0;
 		}
+
 		
 
 	}
